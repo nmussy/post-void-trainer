@@ -1,6 +1,6 @@
 {
   "name": "post-void-trainer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI trainer for YCJY's Post Void",
   "main": "index.js",
   "repository": "https://github.com/nmussy/post-void-trainer.git",
@@ -9,9 +9,9 @@
   "private": true,
   "bin": "build/index.js",
   "scripts": {
-    "release": "yarn build && pkg --target win .",
+    "release": "yarn build && mkdir release && pkg --target win . --output release/post-void-trainer.exe",
     "build": "yarn clean && mkdir build && babel index.js --out-file build/index.js",
-    "clean": "rimraf build",
+    "clean": "rimraf build release",
     "start": "babel-node index.js",
     "watch": "nodemon -I --watch index.js --exec \"yarn babel-node index.js\""
   },
