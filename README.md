@@ -19,11 +19,11 @@ Requires a **32-bit version of node**, `build-tools`, probably more stuff for gy
 yarn
 
 # rebuild memoryjs for 32-bit
-cd node_modules/memoryjs
+cd node_modules\memoryjs
 yarn build32
-cd ../..
+cd ..\..
 
 yarn release
-cp node_modules/memoryjs/build/Release/memoryjs.node release
-zip -rj release.zip release/*
+copy node_modules\memoryjs\build\Release\memoryjs.node release
+zip -rj release.zip release\*
 ```

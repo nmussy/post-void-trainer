@@ -1,6 +1,6 @@
 {
   "name": "post-void-trainer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI trainer for YCJY's Post Void",
   "main": "index.js",
   "repository": "https://github.com/nmussy/post-void-trainer.git",
@@ -10,24 +10,31 @@
   "bin": "build/index.js",
   "scripts": {
     "release": "yarn build && mkdir release && pkg --target win . --output release/post-void-trainer.exe",
-    "build": "yarn clean && mkdir build && babel index.js --out-file build/index.js",
+    "build": "yarn clean && mkdir build && babel src --extensions \".ts\" --out-dir build --source-maps inline",
     "clean": "rimraf build release",
-    "start": "babel-node index.js",
-    "watch": "nodemon -I --watch index.js --exec \"yarn babel-node index.js\""
+    "start": "babel-node --extensions \".ts\" src/index.ts",
+    "watch": "nodemon -I --watch \"src/**/*.ts\" --exec \"yarn start\""
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/eslint-parser": "^7.11.3",
     "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-typescript": "^7.11.0",
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/inquirer": "^7.3.0",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.6",
     "nodemon": "^2.0.4",
     "pkg": "^4.4.9",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "typescript": "^3.9.7",
     "ws": "^7.3.1"
   },
   "dependencies": {
